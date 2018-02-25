@@ -45,5 +45,6 @@ for n in range(0, nmax):
         pos = mower.move(pos_list[n], i)
     res.append(pos)
 
-print(res)
-# [2, 2, E]
+# outputs expected format
+for r in res:
+    print("%d %d %s" % (r[0], r[1], r[2]))
