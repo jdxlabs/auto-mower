@@ -21,6 +21,7 @@ retains its orientation and go to the next command.
 We assume the position directly to the north of (X,Y) is (X,Y+1).
 
 To program the mower, we can provide an input file constructed as follows:
+
 The first line correspond to the coordinate of the upper right corner of the lawn,
 the bottom left corner is assumed as (0,0).
 The rest of the file can control multiple mowers deployed on the lawn.
@@ -34,7 +35,7 @@ characters without spaces.
 Each mower move sequentially, meaning that the second mower moves only when the first has
 fully performed its series of instructions.
 
-When a mowe has finished, it gives the final position and orientation.
+When a mower has finished, it gives the final position and orientation.
 
 ## example
 input file
