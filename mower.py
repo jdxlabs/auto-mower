@@ -1,16 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# pylint: disable=old-style-class, invalid-name,no-self-use
+"""
+The functions about the mower's positions.
+"""
 
 from __future__ import print_function
 
 class Mower:
     """
-    The functions about the mower's positions.
+        The class about the mower.
     """
 
     def __init__(self, MAX_X, MAX_Y):
-        self.MAX_X = MAX_X
-        self.MAX_Y = MAX_Y
+        self.MAX_X = int(MAX_X)
+        self.MAX_Y = int(MAX_Y)
 
     def rotate(self, z, i):
         """
