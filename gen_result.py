@@ -32,13 +32,15 @@ def forward(pos):
         pos[2] -= 1
     elif (z == 'S' and pos[1] > 0):
         pos[1] -= 1
+    else:
+        print('Invalid orientation')
 
     return pos;
 
 def move(pos, i):
     """
         Determines the new position in the grid,
-        depending on the possibles actions allowed.
+        depending on the allowed actions.
     """
     if i == 'F':
         pos = forward(pos)
