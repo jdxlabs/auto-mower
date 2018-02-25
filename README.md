@@ -1,7 +1,19 @@
 # auto-mower
+
+## Description
 Auto-mower for square surfaces
 
-## specs
+## Requirements
+* Python 2.6+
+
+## Execution
+Create the configuration file you want to treat in the "inputs" folder,
+then just launch the generation :
+```
+python gen_result.py <filename>
+```
+
+## Specs
 The mower can be programmed to go throughout the whole surface. Mower's position is
 represented by coordinates (X,Y) and a character indicates the orientation
 according to cardinal notations (N,E,W,S).
@@ -37,7 +49,7 @@ fully performed its series of instructions.
 
 When a mower has finished, it gives the final position and orientation.
 
-## example
+## Example
 input file
 5 5
 1 2 N
