@@ -18,9 +18,9 @@ pos_list = []
 inputs_list = []
 
 # extract instructions from file
-with open(path) as f:
-    c = 0
-    try:
+try:
+    with open(path) as f:
+        c = 0
         for x in f.readlines():
             l = x.strip().split(' ')
             if c == 0:
@@ -33,8 +33,10 @@ with open(path) as f:
                 except ValueError:
                     inputs_list.append(list(l[0]))
             c += 1
-    except ValueError:
-        quit("There's something wrong about the mower's instructions.")
+except IOError:
+    quit("The filename you specified doesn't match.")
+except ValueError:
+    quit("There's something wrong about the mower's instructions.")
 
 if len(pos_list) != len(inputs_list):
     quit("Ensure there's a correct couple of instructions for each mower.")
