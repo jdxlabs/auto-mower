@@ -20,21 +20,24 @@ inputs_list = []
 # extract instructions from file
 with open(path) as f:
     c = 0
-    for x in f.readlines():
-        l = x.strip().split(' ')
-        if c == 0:
-            MAX_X = int(l[0])
-            MAX_Y = int(l[1])
-        else:
-            try:
-                pos = [int(l[0]), int(l[1]), l[2]]
-                pos_list.append(pos)
-            except ValueError:
-                inputs_list.append(list(l[0]))
-        c += 1
+    try:
+        for x in f.readlines():
+            l = x.strip().split(' ')
+            if c == 0:
+                MAX_X = int(l[0])
+                MAX_Y = int(l[1])
+            else:
+                try:
+                    pos = [int(l[0]), int(l[1]), l[2]]
+                    pos_list.append(pos)
+                except ValueError:
+                    inputs_list.append(list(l[0]))
+            c += 1
+    except ValueError:
+        quit("There's something wrong about the mower's instructions.")
 
 if len(pos_list) != len(inputs_list):
-    quit("There's something wrong about the mower's instructions.")
+    quit("Ensure there's a correct couple of instructions for each mower.")
 
 nmax = len(pos_list)
 mower = Mower(MAX_X, MAX_Y)
