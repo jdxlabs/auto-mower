@@ -15,8 +15,22 @@ def rotate(z, i):
         Determines the new orientation (z = NEWS),
         depending on the actual orientation and turn input (i = LR).
     """
-    # TODO
-    return z;
+    if i != 'R' and i != 'L':
+        print('Invalid input')
+        return z
+
+    if z == 'N':
+        z = 'E' if (i == 'R') else 'W'
+    elif z == 'E':
+        z = 'S' if (i == 'R') else 'N'
+    elif z == 'W':
+        z = 'N' if (i == 'R') else 'S'
+    elif z == 'S':
+        z = 'W' if (i == 'R') else 'E'
+    else:
+        print('Invalid orientation')
+
+    return z
 
 def forward(pos):
     """
@@ -24,18 +38,22 @@ def forward(pos):
         and the constraints of the grid.
     """
     z = pos[2]
-    if (z == 'N' and pos[1] < MAX_Y):
-        pos[1] += 1
-    elif (z == 'E' and pos[2] < MAX_X):
-        pos[2] += 1
-    elif (z == 'W' and pos[2] > 0):
-        pos[2] -= 1
-    elif (z == 'S' and pos[1] > 0):
-        pos[1] -= 1
+    if z == 'N':
+        if pos[1] < MAX_Y:
+            pos[1] += 1
+    elif z == 'E':
+        if pos[0] < MAX_X:
+            pos[0] += 1
+    elif z == 'W':
+        if pos[0] > 0:
+            pos[0] -= 1
+    elif z == 'S':
+        if pos[1] > 0:
+            pos[1] -= 1
     else:
         print('Invalid orientation')
 
-    return pos;
+    return pos
 
 def move(pos, i):
     """
@@ -47,23 +65,14 @@ def move(pos, i):
     elif i == 'R' or i == 'L':
         pos[2] = rotate(pos[2], i)
     else:
-        print('Invalid Input')
+        print('Invalid input')
 
-    return pos;
+    return pos
 
-# test file #2
-#2 2
-#2 0 N
-#FFRF
-
-# Algo :
-# <pos = def move(pos, i)>
-# pos = [2, 1, N] = def move(pos, F)
-# pos = [2, 2, N] = def move(pos, F)
-# pos = [2, 2, R] = def move(pos, R)
-# pos = [2, 2, R] = def move(pos, F)
-# ==> [2, 2, R]
-pos = [2, 0, 'N'];
-
-pos = move(pos, 'F');
-print('pos : %s' % pos);
+pos = [2, 0, 'N']
+pos = move(pos, 'F')
+pos = move(pos, 'F')
+pos = move(pos, 'R')
+pos = move(pos, 'F')
+print('pos : %s' % pos)
+# [2, 2, E]
