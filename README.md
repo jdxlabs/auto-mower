@@ -50,6 +50,7 @@ fully performed its series of instructions.
 When a mower has finished, it gives the final position and orientation.
 
 ## Example
+```
 input file
 5 5
 1 2 N
@@ -60,3 +61,4 @@ FFRFFRFRRF
 result
 1 3 N
 5 1 E
+```
