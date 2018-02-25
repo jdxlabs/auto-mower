@@ -23,7 +23,16 @@ def forward(pos):
         Moving forward in the grid, depending on the actual position
         and the constraints of the grid.
     """
-    # TODO
+    z = pos[2]
+    if (z == 'N' and pos[1] < MAX_Y):
+        pos[1] += 1
+    elif (z == 'E' and pos[2] < MAX_X):
+        pos[2] += 1
+    elif (z == 'W' and pos[2] > 0):
+        pos[2] -= 1
+    elif (z == 'S' and pos[1] > 0):
+        pos[1] -= 1
+
     return pos;
 
 def move(pos, i):
