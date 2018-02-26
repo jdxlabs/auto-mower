@@ -8,9 +8,17 @@ Auto-mower for square surfaces
 
 ## Execution
 Create the configuration file you want to treat in the "inputs" folder,
-then just launch the generation :
+specify the environment, then just launch the generation :
 ```
+export ENV=dev
 python gen_result.py <filename>
+```
+## Docker
+You can also build a Docker image :
+```
+docker build --no-cache -t auto-mower .
+docker run -td -e 'ENV=dev' --name auto-mower auto-mower
+docker exec -it <ctn-id> sh
 ```
 
 ## Specs
