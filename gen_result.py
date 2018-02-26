@@ -7,17 +7,23 @@ The script to generate mower's final coordinates.
 """
 
 from __future__ import print_function
+import os
 import sys
 from mower import *
 
 if len(sys.argv) < 2:
-    quit('Please indicate a filename')
-path = './inputs/%s' % sys.argv[1]
+    quit('Please indicate a filename, like this : ./gen_result.py <filename>')
+
+ENV = os.environ['ENV'] if ('ENV' in os.environ) else 'dev'
+if ENV != 'dev' and ENV != 'prod':
+    quit('Please indicate a valid environment')
+
+path = './inputs/%s/%s' % (ENV, sys.argv[1])
 
 pos_list = []
 inputs_list = []
 
-# extract instructions from file
+# extracts instructions from file
 try:
     with open(path) as f:
         c = 0
