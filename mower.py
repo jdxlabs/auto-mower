@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# pylint: disable=old-style-class, invalid-name,no-self-use
+# pylint: disable=old-style-class,invalid-name,no-self-use
 """
 The functions about the mower's positions.
 """
