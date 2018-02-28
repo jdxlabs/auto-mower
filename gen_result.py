@@ -53,7 +53,7 @@ mower = Mower(MAX_X, MAX_Y)
 res = []
 for n in range(0, nmax):
     for i in inputs_list[n]:
-        pos = mower.move(pos_list[n], i)
+        pos = mower.move(pos_list[n], i, res)
     res.append(pos)
 
 # outputs expected format

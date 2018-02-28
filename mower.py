@@ -37,35 +37,41 @@ class Mower:
             print('Invalid orientation')
         return z
 
-    def forward(self, pos):
+    def forward(self, pos, res):
         """
             Moving forward in the grid, depending on the actual position
             and the constraints of the grid.
         """
+        xs = []
+        ys = []
+        for r in res:
+            xs.append(r[0])
+            ys.append(r[1])
+
         z = pos[2]
         if z == 'N':
-            if pos[1] < self.MAX_Y:
+            if pos[1] < self.MAX_Y and pos[1]+1 not in ys:
                 pos[1] += 1
         elif z == 'E':
-            if pos[0] < self.MAX_X:
+            if pos[0] < self.MAX_X and pos[0]+1 not in xs:
                 pos[0] += 1
         elif z == 'W':
-            if pos[0] > 0:
+            if pos[0] > 0 and pos[0]-1 not in xs:
                 pos[0] -= 1
         elif z == 'S':
-            if pos[1] > 0:
+            if pos[1] > 0 and pos[1]-1 not in ys:
                 pos[1] -= 1
         else:
             print('Invalid orientation')
         return pos
 
-    def move(self, pos, i):
+    def move(self, pos, i, res):
         """
             Determines the new position in the grid,
             depending on the allowed actions.
         """
         if i == 'F':
-            pos = self.forward(pos)
+            pos = self.forward(pos, res)
         elif i == 'R' or i == 'L':
             pos[2] = self.rotate(pos[2], i)
         else:
